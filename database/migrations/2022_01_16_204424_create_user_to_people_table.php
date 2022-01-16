@@ -18,8 +18,7 @@ class CreateUserToPeopleTable extends Migration
             $table->foreignId('user_id')->nullable(false)->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('person_id')->nullable(false)->references('id')->on('people')->onDelete('cascade');
             $table->tinyInteger('active')->default(1);
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

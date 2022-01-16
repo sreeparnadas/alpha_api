@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\UserType;
+use App\Models\Person;
+use App\Models\UserToPerson;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -41,6 +43,13 @@ class DatabaseSeeder extends Seeder
         User::create(['user_type_id' => 7,'parent_id' => 6, 'email' => 'volunteer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'xyz@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'abc@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+
+        Person::create(['person_name' => 'Fatakesto', 'email' => 'mp@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+
+
+        UserToPerson::create(['user_id' => 3, 'person_id' => 1,'active' => 0]);
+        UserToPerson::create(['user_id' => 3, 'person_id' => 1, 'active' => 1]);
 
     }
 }
