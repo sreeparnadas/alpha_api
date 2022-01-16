@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->foreignId('user_type_id')->nullable(false)->references('id')->on('user_types')->onDelete('cascade');
             $table->foreignId('parent_id')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('area_id')->nullable()->references('id')->on('areas')->onDelete('cascade');
             $table->string('user_description',255)->nullable(true);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

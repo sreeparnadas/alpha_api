@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserType;
 use App\Models\Person;
 use App\Models\UserToPerson;
+use App\Models\Area;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -32,16 +33,22 @@ class DatabaseSeeder extends Seeder
         
         $this->command->info('All User types are added');
 
+        Area::create(['area_name' => 'area_1']);
+        Area::create(['area_name' => 'area_2']);
+        Area::create(['area_name' => 'area_3']);
+        Area::create(['area_name' => 'area_4']);
+        Area::create(['area_name' => 'area_5']);
 
-        User::create(['user_type_id' => 1,'parent_id' => NULL, 'email' => 'admina@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 2,'parent_id' => 1, 'email' => 'developer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 3,'parent_id' => 1, 'email' => 'mp@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 4,'parent_id' => 3, 'email' => 'rajchakraborty@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 5,'parent_id' => 4, 'email' => 'boothmaster@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 6,'parent_id' => 5, 'email' => 'boothmember1@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 6,'parent_id' => 5, 'email' => 'boothmember2@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 7,'parent_id' => 6, 'email' => 'volunteer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'xyz@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+        User::create(['user_type_id' => 1,'parent_id' => NULL,'area_id'=> 1, 'email' => 'admina@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 2,'parent_id' => 1,'area_id'=> 1, 'email' => 'developer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 3,'parent_id' => 1,'area_id'=> 2, 'email' => 'mp@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 4,'parent_id' => 3,'area_id'=> 2, 'email' => 'rajchakraborty@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 5,'parent_id' => 4,'area_id'=> 2, 'email' => 'boothmaster@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 6,'parent_id' => 5,'area_id'=> 2, 'email' => 'boothmember1@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 6,'parent_id' => 5,'area_id'=> 2, 'email' => 'boothmember2@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 7,'parent_id' => 6,'area_id'=> 2, 'email' => 'volunteer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 8,'parent_id' => 7,'area_id'=> 2, 'email' => 'xyz@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'abc@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
 
 
@@ -50,6 +57,8 @@ class DatabaseSeeder extends Seeder
 
         UserToPerson::create(['user_id' => 3, 'person_id' => 1,'active' => 0]);
         UserToPerson::create(['user_id' => 3, 'person_id' => 1, 'active' => 1]);
+
+        
 
     }
 }

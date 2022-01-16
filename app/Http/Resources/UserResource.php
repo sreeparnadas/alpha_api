@@ -23,7 +23,7 @@ class UserResource extends JsonResource
     {
         return [
             'uniqueId' => $this->id,
-            'userName' => $this->user_name,
+            // 'userName' => $this->user_name,
             'userTypeId' => $this->user_type_id,
             'userTypeName' => $this->user_type->user_type_name,
         ];
