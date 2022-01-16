@@ -31,15 +31,15 @@ class DatabaseSeeder extends Seeder
         $this->command->info('All User types are added');
 
 
-        User::create(['user_type_id' => 1,'parent_id' => NULL, 'email' => 'admina@gmail.com']);
-        User::create(['user_type_id' => 2,'parent_id' => 1, 'email' => 'developer@gmail.com']);
-        User::create(['user_type_id' => 3,'parent_id' => 1, 'email' => 'mp@gmail.com']);
-        User::create(['user_type_id' => 4,'parent_id' => 3, 'email' => 'rajchkraborty@gmail.com']);
-        User::create(['user_type_id' => 5,'parent_id' => 4, 'email' => 'boothmaster@gmail.com']);
-        User::create(['user_type_id' => 6,'parent_id' => 5, 'email' => 'boothmember@gmail.com']);
-        User::create(['user_type_id' => 7,'parent_id' => 6, 'email' => 'volunteer@gmail.com']);
-        User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'xyz@gmail.com']);
-        User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'abc@gmail.com']);
+        User::create(['user_type_id' => 1,'parent_id' => NULL, 'email' => 'admina@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 2,'parent_id' => 1, 'email' => 'developer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 3,'parent_id' => 1, 'email' => 'mp@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 4,'parent_id' => 3, 'email' => 'rajchkraborty@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 5,'parent_id' => 4, 'email' => 'boothmaster@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 6,'parent_id' => 5, 'email' => 'boothmember@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 7,'parent_id' => 6, 'email' => 'volunteer@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'xyz@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['user_type_id' => 8,'parent_id' => 7, 'email' => 'abc@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
 
     }
 }
