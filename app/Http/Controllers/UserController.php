@@ -66,7 +66,8 @@ class UserController extends ApiController
 
         $token = $user->createToken('my-app-token')->plainTextToken;
         $user->setAttribute('token',$token);
-        return $this->successResponse(new LoginResource($user));
+        // return $this->successResponse(new LoginResource($user));
+        return $this->successResponse($user);
 
     }
 

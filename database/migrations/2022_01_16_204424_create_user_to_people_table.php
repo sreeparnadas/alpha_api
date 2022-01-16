@@ -15,6 +15,11 @@ class CreateUserToPeopleTable extends Migration
     {
         Schema::create('user_to_people', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable(false)->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('person_id')->nullable(false)->references('id')->on('people')->onDelete('cascade');
+            $table->tinyInteger('active')->default(1);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }
