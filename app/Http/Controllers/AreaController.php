@@ -12,9 +12,12 @@ class AreaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function get_area()
     {
-        //
+        $area = Area::get();
+
+        return response()->json(['success'=>1,'data'=>$area], 200,[],JSON_NUMERIC_CHECK);
+
     }
 
     /**

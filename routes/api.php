@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\FeesModeTypeController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\StudentCourseRegistrationController;
@@ -75,7 +76,10 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("/store_multiple",[StudentController::class, 'store_multiple']);
         Route::patch("/",[StudentController::class, 'update']);
         Route::delete("/{id}",[StudentController::class, 'delete']);
+
+
     });
+    Route::get("getAllArea",[AreaController::class, 'get_area']);
 
 });
 
@@ -108,6 +112,9 @@ Route::group(array('prefix' => 'dev'), function() {
         Route::post("/store_multiple",[StudentController::class, 'store_multiple']);
         Route::patch("/",[StudentController::class, 'update']);
         Route::delete("/{id}",[StudentController::class, 'delete']);
+
+
+
     });
 
 
@@ -145,6 +152,9 @@ Route::group(array('prefix' => 'dev'), function() {
 
 
     Route::get("users",[UserController::class,'index']);
+
+    //Area
+    Route::get("getAllArea",[AreaController::class, 'get_area']);
 
 
 
