@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://127.0.0.1:8000/public/api/*',
         'http://192.168.*',
+        'https://new.sikkimteer.com/'
     ];
 }
