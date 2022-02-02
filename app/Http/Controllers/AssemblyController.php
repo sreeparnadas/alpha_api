@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserToPerson;
+use App\Models\Assembly;
 use Illuminate\Http\Request;
 
-class UserToPersonController extends Controller
+class AssemblyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserToPersonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserToPerson  $userToPerson
+     * @param  \App\Models\Assembly  $assembly
      * @return \Illuminate\Http\Response
      */
-    public function show(UserToPerson $userToPerson)
+    public function show(Assembly $assembly)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserToPersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserToPerson  $userToPerson
+     * @param  \App\Models\Assembly  $assembly
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserToPerson $userToPerson)
+    public function edit(Assembly $assembly)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserToPersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserToPerson  $userToPerson
+     * @param  \App\Models\Assembly  $assembly
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserToPerson $userToPerson)
+    public function update(Request $request, Assembly $assembly)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserToPersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserToPerson  $userToPerson
+     * @param  \App\Models\Assembly  $assembly
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserToPerson $userToPerson)
+    public function destroy(Assembly $assembly)
     {
         //
     }

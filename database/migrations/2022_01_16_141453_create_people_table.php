@@ -15,6 +15,7 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('person_type_id')->nullable(false)->references('id')->on('person_types')->onDelete('cascade');
             $table->string('person_name',255)->nullable(false);
             $table->string('email')->unique();
 

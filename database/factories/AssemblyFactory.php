@@ -1,18 +1,18 @@
 <?php
 
-namespace Database\Factories\Model;
+namespace Database\Factories;
 
-use App\Models\Model\UserType;
+use App\Models\Assembly;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserTypeFactory extends Factory
+class AssemblyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = UserType::class;
+    protected $model = Assembly::class;
 
     /**
      * Define the model's default state.

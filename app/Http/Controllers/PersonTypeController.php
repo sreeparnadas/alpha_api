@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserType;
+use App\Models\PersonType;
 use Illuminate\Http\Request;
 
-class UserTypeController extends Controller
+class PersonTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Model\UserType  $userType
+     * @param  \App\Models\PersonType  $personType
      * @return \Illuminate\Http\Response
      */
-    public function show(UserType $userType)
+    public function show(PersonType $personType)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Model\UserType  $userType
+     * @param  \App\Models\PersonType  $personType
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserType $userType)
+    public function edit(PersonType $personType)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Model\UserType  $userType
+     * @param  \App\Models\PersonType  $personType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserType $userType)
+    public function update(Request $request, PersonType $personType)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Model\UserType  $userType
+     * @param  \App\Models\PersonType  $personType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserType $userType)
+    public function destroy(PersonType $personType)
     {
         //
     }
