@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class district extends Model
+class District extends Model
 {
     use HasFactory;
+
+    public function assemblies(){
+        return $this->hasMany(Assembly::class,'district_id');
+    }
 }

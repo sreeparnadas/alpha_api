@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Assembly;
+use App\Models\District;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
+use App\Http\Resources\DistrictResource;
+use App\Http\Resources\AssemblyResource;
 
-class AssemblyController extends Controller
+class AssemblyController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,19 @@ class AssemblyController extends Controller
      */
     public function index()
     {
-        //
+        $districts = District::orderBy('id')->get();
+
+        return response()->json(['success'=>1,'data'=> DistrictResource::collection($districts)], 200,[],JSON_NUMERIC_CHECK);
+    }
+
+    public function fetchAssemblyByDistrictId($districtId)
+    {
+        $districtWithAssembly = Assembly::select('assemblies.id','assemblies.assembly_name','assemblies.district_id','districts.district_name')
+        ->join('districts','assemblies.district_id','districts.id')
+        ->whereDistrictId($districtId)
+        ->get();
+
+        return $this->successResponse(AssemblyResource::collection($districtWithAssembly));
     }
 
     /**

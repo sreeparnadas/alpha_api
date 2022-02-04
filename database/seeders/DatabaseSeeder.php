@@ -55,8 +55,7 @@ class DatabaseSeeder extends Seeder
         Assembly::create(['assembly_name' => 'Mowkaiaw(ST)', 'district_id' => 1]); #4
         Assembly::create(['assembly_name' => 'Sutnga Saipung(ST)', 'district_id' => 2]); #5
         Assembly::create(['assembly_name' => 'Khliehriat(ST)', 'district_id' => 2]); #6
-        Assembly::create(['assembly_name' => 'Jowai(ST)', 'district_id' => 1]); #7
-        Assembly::create(['assembly_name' => 'Jowai(ST)', 'district_id' => 1]); #7
+        Assembly::create(['assembly_name' => 'Amlarem(ST)', 'district_id' => 1]); #7
 
         Assembly::create(['assembly_name' => 'Mawhati(ST)', 'district_id' => 3]); #8
         Assembly::create(['assembly_name' => 'Nongpoh(ST)', 'district_id' => 3]); #9
@@ -91,11 +90,12 @@ class DatabaseSeeder extends Seeder
         Assembly::create(['assembly_name' => 'Ranikot(ST)', 'district_id' => 6]); #35
         Assembly::create(['assembly_name' => 'Mawkyrwat(ST)', 'district_id' => 6]); #36
 
+        Assembly::create(['assembly_name' => 'Kharkutta(ST)', 'district_id' => 8]); #37
+
         Assembly::create(['assembly_name' => 'Mendipathar(ST)', 'district_id' => 7]); #38
         Assembly::create(['assembly_name' => 'Resubelpara(ST)', 'district_id' => 7]); #39
         Assembly::create(['assembly_name' => 'Bajengdoba(ST)', 'district_id' => 7]); #40
 
-        Assembly::create(['assembly_name' => 'Kharkutta(ST)', 'district_id' => 8]); #37
         Assembly::create(['assembly_name' => 'Songsak(ST)', 'district_id' => 8]); #41
         Assembly::create(['assembly_name' => 'Rongjeng(ST)', 'district_id' => 8]); #42
         Assembly::create(['assembly_name' => 'William Nagar(ST)', 'district_id' => 8]); #43
@@ -109,30 +109,32 @@ class DatabaseSeeder extends Seeder
         Assembly::create(['assembly_name' => 'North Tura(ST)', 'district_id' => 9]); #50
         Assembly::create(['assembly_name' => 'South Tura(ST)', 'district_id' => 9]); #51
         Assembly::create(['assembly_name' => 'Rangsakona(ST)', 'district_id' => 9]); #52
-        Assembly::create(['assembly_name' => 'Gambegre(ST)', 'district_id' => 9]); #56
-        Assembly::create(['assembly_name' => 'Dalu(ST)', 'district_id' => 9]); #57
 
         Assembly::create(['assembly_name' => 'Ampati(ST)', 'district_id' => 10]); #53
         Assembly::create(['assembly_name' => 'Mahendraganj(ST)', 'district_id' => 10]); #54
         Assembly::create(['assembly_name' => 'Salmanpara(ST)', 'district_id' => 10]); #55
+        
+        Assembly::create(['assembly_name' => 'Gambegre(ST)', 'district_id' => 9]); #56
+        Assembly::create(['assembly_name' => 'Dalu(ST)', 'district_id' => 9]); #57
+
 
         Assembly::create(['assembly_name' => 'Rongara Siju(ST)', 'district_id' => 11]); #58
         Assembly::create(['assembly_name' => 'Chokpot(ST)', 'district_id' => 11]); #59
         Assembly::create(['assembly_name' => 'Baghmara(ST)', 'district_id' => 11]); #60
 
 
-        Person::create(['person_type_id' => 1,'person_name' => 'Huico', 'email' => 'dev@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 2,'person_name' => 'Fatakesto', 'email' => 'admin@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 3,'person_name' => 'Tukai', 'email' => 'candid@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 4,'person_name' => 'Kajal', 'email' => 'xyz@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 5,'person_name' => 'Shekhar', 'email' => 'abc@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => 'dev@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => 'admin@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => 'candid@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => 'xyz@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => 'abc@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
 
 
-        User::create(['person_id' => 1,'parent_id' => NULL,'area_id'=> 1, 'email' => 'dev@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['person_id' => 2,'parent_id' => 1,'area_id'=> 1, 'email' => 'admin@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['person_id' => 3,'parent_id' => 1,'area_id'=> 2, 'email' => 'candid@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['person_id' => 4,'parent_id' => 3,'area_id'=> 2, 'email' => 'xyz@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        User::create(['person_id' => 5,'parent_id' => 4,'area_id'=> 2, 'email' => 'abc@gmail.com', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 1,'parent_id' => NULL,'area_id'=> 1, 'email' => '1', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 2,'parent_id' => 1,'area_id'=> 1, 'email' => '2', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 3,'parent_id' => 1,'area_id'=> 2, 'email' => '3', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 4,'parent_id' => 3,'area_id'=> 2, 'email' => '4', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 5,'parent_id' => 4,'area_id'=> 2, 'email' => '5', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         
 
     }
