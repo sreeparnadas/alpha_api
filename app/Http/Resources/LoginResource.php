@@ -23,10 +23,11 @@ class LoginResource extends JsonResource
     {
         return [
             'uniqueId' => $this->id,
-            'person' => new PersonResource($this->person->first()),
+            'person' => new PersonResource($this->person),
+            // 'person' => new PersonResource($this->person->first()),
             // 'userName' => $this->user_name,
-            'userTypeId' => $this->user_type_id,
-            'userTypeName' => $this->user_type->user_type_name,
+            // 'userTypeId' => $this->user_type_id,
+            // 'userTypeName' => $this->user_type->user_type_name,
             'token' => $this->token,
         ];
     }

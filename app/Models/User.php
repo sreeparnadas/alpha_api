@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\UserToPerson;
+// use App\Models\UserToPerson;
 use App\Models\Person;
 
 class User extends Authenticatable
@@ -47,8 +47,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\UserToPerson','user_id');
     }
 
+    // public function person_old()
+    // {
+    //     return $this->belongsToMany(Person::class,UserToPerson::class,'user_id','person_id')->wherePivot('active', '=', 1);
+    // }
     public function person()
     {
-        return $this->belongsToMany(Person::class,UserToPerson::class,'user_id','person_id')->wherePivot('active', '=', 1);
+        return $this->belongsTo(Person::class,'person_id');
     }
 }
