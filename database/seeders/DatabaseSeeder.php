@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\State;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\PersonType;
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
         PersonType::create(['person_type_name' => 'polling station Volunteer']); #4
         PersonType::create(['person_type_name' => 'General members']);          #5
 
-        
+
         $this->command->info('All User types are added');
 
         Area::create(['area_name' => 'area_1']);
@@ -37,17 +38,59 @@ class DatabaseSeeder extends Seeder
         Area::create(['area_name' => 'area_4']);
         Area::create(['area_name' => 'area_5']);
 
-        District::create(['district_name' => 'WEST JAINTIA HILLS']);
-        District::create(['district_name' => 'EAST JAINTIA HILLS']);
-        District::create(['district_name' => 'RIBHOI']);
-        District::create(['district_name' => 'EAST KHASI HILLS']);
-        District::create(['district_name' => 'WEST KHASI HILLS']);
-        District::create(['district_name' => 'SOUTH WEST KHASI HILLS']);
-        District::create(['district_name' => 'NORTH GARO HILLS']);
-        District::create(['district_name' => 'EAST GARO HILLS']);
-        District::create(['district_name' => 'WEST GARO HILLS']);
-        District::create(['district_name' => 'SOUTH WEST GARO HILLS']);
-        District::create(['district_name' => 'SOUTH GARO HILLS']);
+
+        //storing state
+        State::insert([
+            ['state_code'=>1,'state_name'=>'Jammu & Kashmir'],
+            ['state_code'=>2,'state_name'=>'Himachal Pradesh'],
+            ['state_code'=>3,'state_name'=>'Punjab'],
+            ['state_code'=>4,'state_name'=>'Chandigarh'],
+            ['state_code'=>5,'state_name'=>'Uttranchal'],
+            ['state_code'=>6,'state_name'=>'Haryana'],
+            ['state_code'=>7,'state_name'=>'Delhi'],
+            ['state_code'=>8,'state_name'=>'Rajasthan'],
+            ['state_code'=>9,'state_name'=>'Uttar Pradesh'],
+            ['state_code'=>10,'state_name'=>'Bihar'],
+            ['state_code'=>11,'state_name'=>'Sikkim'],
+            ['state_code'=>12,'state_name'=>'Arunachal Pradesh'],
+            ['state_code'=>13,'state_name'=>'Nagaland'],
+            ['state_code'=>14,'state_name'=>'Manipur'],
+            ['state_code'=>15,'state_name'=>'Mizoram'],
+            ['state_code'=>16,'state_name'=>'Tripura'],
+            ['state_code'=>17,'state_name'=>'Meghalaya'],
+            ['state_code'=>18,'state_name'=>'Assam'],
+            ['state_code'=>19,'state_name'=>'West Bengal'],
+            ['state_code'=>20,'state_name'=>'Jharkhand'],
+            ['state_code'=>21,'state_name'=>'Odisha (Formerly Orissa'],
+            ['state_code'=>22,'state_name'=>'Chhattisgarh'],
+            ['state_code'=>23,'state_name'=>'Madhya Pradesh'],
+            ['state_code'=>24,'state_name'=>'Gujarat'],
+            ['state_code'=>25,'state_name'=>'Daman & Diu'],
+            ['state_code'=>26,'state_name'=>'Dadra & Nagar Haveli'],
+            ['state_code'=>27,'state_name'=>'Maharashtra'],
+            ['state_code'=>28,'state_name'=>'Andhra Pradesh'],
+            ['state_code'=>29,'state_name'=>'Karnataka'],
+            ['state_code'=>30,'state_name'=>'Goa'],
+            ['state_code'=>31,'state_name'=>'Lakshdweep'],
+            ['state_code'=>32,'state_name'=>'Kerala'],
+            ['state_code'=>33,'state_name'=>'Tamil Nadu'],
+            ['state_code'=>34,'state_name'=>'Pondicherry'],
+            ['state_code'=>35,'state_name'=>'Andaman & Nicobar Islands'],
+            ['state_code'=>36,'state_name'=>'Telangana'],
+            ['state_code'=>37,'state_name'=>'Ladak']
+        ]);
+
+        District::create(['district_name' => 'WEST JAINTIA HILLS','state_id' => 17]);
+        District::create(['district_name' => 'EAST JAINTIA HILLS','state_id' => 17]);
+        District::create(['district_name' => 'RIBHOI','state_id' => 17]);
+        District::create(['district_name' => 'EAST KHASI HILLS','state_id' => 17]);
+        District::create(['district_name' => 'WEST KHASI HILLS','state_id' => 17]);
+        District::create(['district_name' => 'SOUTH WEST KHASI HILLS','state_id' => 17]);
+        District::create(['district_name' => 'NORTH GARO HILLS','state_id' => 17]);
+        District::create(['district_name' => 'EAST GARO HILLS','state_id' => 17]);
+        District::create(['district_name' => 'WEST GARO HILLS','state_id' => 17]);
+        District::create(['district_name' => 'SOUTH WEST GARO HILLS','state_id' => 17]);
+        District::create(['district_name' => 'SOUTH GARO HILLS','state_id' => 17]);
 
         Assembly::create(['assembly_name' => 'Nartiang(ST)','district_id' => 1]);   #1
         Assembly::create(['assembly_name' => 'Jowai(ST)', 'district_id' => 1]); #2
@@ -113,7 +156,7 @@ class DatabaseSeeder extends Seeder
         Assembly::create(['assembly_name' => 'Ampati(ST)', 'district_id' => 10]); #53
         Assembly::create(['assembly_name' => 'Mahendraganj(ST)', 'district_id' => 10]); #54
         Assembly::create(['assembly_name' => 'Salmanpara(ST)', 'district_id' => 10]); #55
-        
+
         Assembly::create(['assembly_name' => 'Gambegre(ST)', 'district_id' => 9]); #56
         Assembly::create(['assembly_name' => 'Dalu(ST)', 'district_id' => 9]); #57
 
@@ -135,7 +178,7 @@ class DatabaseSeeder extends Seeder
         User::create(['person_id' => 3,'parent_id' => 1,'area_id'=> 2, 'email' => '3', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['person_id' => 4,'parent_id' => 3,'area_id'=> 2, 'email' => '4', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['person_id' => 5,'parent_id' => 4,'area_id'=> 2, 'email' => '5', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
-        
+
 
     }
 }

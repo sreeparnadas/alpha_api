@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AssemblyController;
+use App\Http\Controllers\StateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -68,7 +69,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 Route::group(array('prefix' => 'dev'), function() {
     // student related API address placed in a group for better readability
     Route::group(array('prefix' => 'assembly'), function() {
-        
+
         Route::get("/", [AssemblyController::class, 'index']);
         Route::get("/district/{id}", [AssemblyController::class, 'fetchAssemblyByDistrictId']);
 
@@ -81,6 +82,10 @@ Route::group(array('prefix' => 'dev'), function() {
 
 
 
+    });
+    Route::group(array('prefix' => 'states'), function() {
+
+        Route::get("/", [StateController::class, 'index']);
     });
 
     Route::get("states",[StateController::class, 'index']);
