@@ -25,9 +25,9 @@ class LoginResource extends JsonResource
             'uniqueId' => $this->id,
             'person' => new PersonResource($this->person),
             // 'person' => new PersonResource($this->person->first()),
-            // 'userName' => $this->user_name,
-            // 'userTypeId' => $this->user_type_id,
-            // 'userTypeName' => $this->user_type->user_type_name,
+            'userName' => $this->person->person_name,
+            'userTypeId' => $this->person->person_type_id,
+            'userTypeName' => $this->person->personTypeName,
             'token' => $this->token,
         ];
     }
