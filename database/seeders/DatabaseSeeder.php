@@ -166,11 +166,71 @@ class DatabaseSeeder extends Seeder
         Assembly::create(['assembly_name' => 'Baghmara(ST)', 'district_id' => 11]); #60
 
 
-        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => 'dev@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => 'admin@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => 'candid@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => 'xyz@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
-        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => 'abc@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '1@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '2@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '3@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '4@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '5@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '6@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '7@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '8@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '9@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '10@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '11@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '12@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '13@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '14@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '15@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '16@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '17@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '18@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '19@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '20@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '21@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '22@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '23@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '24@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '25@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '26@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '27@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '28@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '29@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '30@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '31@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '32@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '33@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '34@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '35@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '36@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '37@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '38@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '39@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '40@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '41@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '42@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '43@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '44@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '45@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '46@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '47@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '48@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '49@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '50@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '51@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '52@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '53@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '54@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '55@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Nartiang', 'email' => '56@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Jowai', 'email' => '57@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Raliang', 'email' => '58@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Mowkaiaw', 'email' => '59@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
+        Person::create(['person_type_id' => 2,'person_name' => 'Sutnga', 'email' => '60@gmail.com', 'mobile1' => '99025888252', 'aadhar_id' =>'4578988' , 'voter_id' => '1236547']);
 
 
         User::create(['person_id' => 1,'parent_id' => NULL,'area_id'=> 1, 'email' => '1', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
@@ -178,6 +238,66 @@ class DatabaseSeeder extends Seeder
         User::create(['person_id' => 3,'parent_id' => 1,'area_id'=> 2, 'email' => '3', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['person_id' => 4,'parent_id' => 3,'area_id'=> 2, 'email' => '4', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
         User::create(['person_id' => 5,'parent_id' => 4,'area_id'=> 2, 'email' => '5', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 6,'parent_id' => NULL,'area_id'=> 1, 'email' => '6', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 7,'parent_id' => 1,'area_id'=> 1, 'email' => '7', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 8,'parent_id' => 1,'area_id'=> 2, 'email' => '8', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 9,'parent_id' => 3,'area_id'=> 2, 'email' => '9', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 10,'parent_id' => 4,'area_id'=> 2, 'email' => '10', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+        User::create(['person_id' => 11,'parent_id' => NULL,'area_id'=> 1, 'email' => '11', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 12,'parent_id' => 1,'area_id'=> 1, 'email' => '12', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 13,'parent_id' => 1,'area_id'=> 2, 'email' => '13', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 14,'parent_id' => 3,'area_id'=> 2, 'email' => '14', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 15,'parent_id' => 4,'area_id'=> 2, 'email' => '15', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 16,'parent_id' => NULL,'area_id'=> 1, 'email' => '16', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 17,'parent_id' => 1,'area_id'=> 1, 'email' => '17', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 18,'parent_id' => 1,'area_id'=> 2, 'email' => '18', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 19,'parent_id' => 3,'area_id'=> 2, 'email' => '19', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 20,'parent_id' => 4,'area_id'=> 2, 'email' => '20', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+        User::create(['person_id' => 21,'parent_id' => NULL,'area_id'=> 1, 'email' => '21', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 22,'parent_id' => 1,'area_id'=> 1, 'email' => '22', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 23,'parent_id' => 1,'area_id'=> 2, 'email' => '23', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 24,'parent_id' => 3,'area_id'=> 2, 'email' => '24', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 25,'parent_id' => 4,'area_id'=> 2, 'email' => '25', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 26,'parent_id' => NULL,'area_id'=> 1, 'email' => '26', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 27,'parent_id' => 1,'area_id'=> 1, 'email' => '27', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 28,'parent_id' => 1,'area_id'=> 2, 'email' => '28', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 29,'parent_id' => 3,'area_id'=> 2, 'email' => '29', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 30,'parent_id' => 4,'area_id'=> 2, 'email' => '30', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+        User::create(['person_id' => 31,'parent_id' => NULL,'area_id'=> 1, 'email' => '31', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 32,'parent_id' => 1,'area_id'=> 1, 'email' => '32', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 33,'parent_id' => 1,'area_id'=> 2, 'email' => '33', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 34,'parent_id' => 3,'area_id'=> 2, 'email' => '34', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 35,'parent_id' => 4,'area_id'=> 2, 'email' => '35', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 36,'parent_id' => NULL,'area_id'=> 1, 'email' => '36', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 37,'parent_id' => 1,'area_id'=> 1, 'email' => '37', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 38,'parent_id' => 1,'area_id'=> 2, 'email' => '38', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 39,'parent_id' => 3,'area_id'=> 2, 'email' => '39', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 40,'parent_id' => 4,'area_id'=> 2, 'email' => '40', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+        User::create(['person_id' => 41,'parent_id' => NULL,'area_id'=> 1, 'email' => '41', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 42,'parent_id' => 1,'area_id'=> 1, 'email' => '42', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 43,'parent_id' => 1,'area_id'=> 2, 'email' => '43', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 44,'parent_id' => 3,'area_id'=> 2, 'email' => '44', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 45,'parent_id' => 4,'area_id'=> 2, 'email' => '45', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 46,'parent_id' => NULL,'area_id'=> 1, 'email' => '46', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 47,'parent_id' => 1,'area_id'=> 1, 'email' => '47', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 48,'parent_id' => 1,'area_id'=> 2, 'email' => '48', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 49,'parent_id' => 3,'area_id'=> 2, 'email' => '49', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 50,'parent_id' => 4,'area_id'=> 2, 'email' => '50', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+
+        User::create(['person_id' => 51,'parent_id' => NULL,'area_id'=> 1, 'email' => '51', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 52,'parent_id' => 1,'area_id'=> 1, 'email' => '52', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 53,'parent_id' => 1,'area_id'=> 2, 'email' => '53', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 54,'parent_id' => 3,'area_id'=> 2, 'email' => '54', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 55,'parent_id' => 4,'area_id'=> 2, 'email' => '55', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 56,'parent_id' => NULL,'area_id'=> 1, 'email' => '56', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 57,'parent_id' => 1,'area_id'=> 1, 'email' => '57', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 58,'parent_id' => 1,'area_id'=> 2, 'email' => '58', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 59,'parent_id' => 3,'area_id'=> 2, 'email' => '59', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
+        User::create(['person_id' => 60,'parent_id' => 4,'area_id'=> 2, 'email' => '60', 'password' => '81dc9bdb52d04dc20036dbd8313ed055']);
 
 
     }
