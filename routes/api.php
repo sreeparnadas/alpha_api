@@ -6,7 +6,7 @@ use App\Http\Controllers\StateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,21 +45,12 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     //get all users
     Route::get("users",[UserController::class,'getAllUsers']);
     Route::post('uploadPicture',[UserController::class,'uploadPicture']);
-
-    // student related API address placed in a group for better readability
-    Route::group(array('prefix' => 'students'), function() {
-        // এখানে সকলকেই দেখাবে, যাদের কোর্স দেওয়া হয়েছে ও যাদের দেওয়া হয়নি সবাইকেই
-        Route::get("/", [StudentController::class, 'index']);
-        Route::get("/studentId/{id}", [StudentController::class, 'get_student_by_id']);
-
-        Route::post("/",[StudentController::class, 'store']);
-        Route::post("/store_multiple",[StudentController::class, 'store_multiple']);
-        Route::patch("/",[StudentController::class, 'update']);
-        Route::delete("/{id}",[StudentController::class, 'delete']);
-
-
-    });
     Route::get("getAllArea",[AreaController::class, 'get_area']);
+
+    Route::group(array('prefix' => 'person'), function() {
+
+        Route::post("/", [PersonController::class, 'store']);
+    });
 
 });
 
@@ -67,20 +58,11 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
 
 Route::group(array('prefix' => 'dev'), function() {
-    // student related API address placed in a group for better readability
+    
     Route::group(array('prefix' => 'assembly'), function() {
 
         Route::get("/", [AssemblyController::class, 'index']);
         Route::get("/district/{id}", [AssemblyController::class, 'fetchAssemblyByDistrictId']);
-
-        Route::get("/studentId/{id}", [StudentController::class, 'get_student_by_id']);
-
-        Route::post("/",[StudentController::class, 'store']);
-        Route::post("/store_multiple",[StudentController::class, 'store_multiple']);
-        Route::patch("/",[StudentController::class, 'update']);
-        Route::delete("/{id}",[StudentController::class, 'delete']);
-
-
 
     });
     Route::group(array('prefix' => 'states'), function() {
@@ -91,6 +73,10 @@ Route::group(array('prefix' => 'dev'), function() {
     Route::get("states",[StateController::class, 'index']);
     Route::get("states/{id}",[StateController::class, 'index_by_id']);
 
+    Route::group(array('prefix' => 'person'), function() {
+
+        Route::post("/", [PersonController::class, 'store']);
+    });
 
     Route::get("logout",[UserController::class,'logout']);
 
