@@ -10,6 +10,7 @@ use App\Models\Person;
 use App\Models\Area;
 use App\Models\District;
 use App\Models\Assembly;
+use App\Models\ParliamentaryConstituency;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -80,17 +81,21 @@ class DatabaseSeeder extends Seeder
             ['state_code'=>37,'state_name'=>'Ladak']
         ]);
 
-        District::create(['district_name' => 'WEST JAINTIA HILLS','state_id' => 17]);
-        District::create(['district_name' => 'EAST JAINTIA HILLS','state_id' => 17]);
-        District::create(['district_name' => 'RIBHOI','state_id' => 17]);
-        District::create(['district_name' => 'EAST KHASI HILLS','state_id' => 17]);
-        District::create(['district_name' => 'WEST KHASI HILLS','state_id' => 17]);
-        District::create(['district_name' => 'SOUTH WEST KHASI HILLS','state_id' => 17]);
-        District::create(['district_name' => 'NORTH GARO HILLS','state_id' => 17]);
-        District::create(['district_name' => 'EAST GARO HILLS','state_id' => 17]);
-        District::create(['district_name' => 'WEST GARO HILLS','state_id' => 17]);
-        District::create(['district_name' => 'SOUTH WEST GARO HILLS','state_id' => 17]);
-        District::create(['district_name' => 'SOUTH GARO HILLS','state_id' => 17]);
+        ParliamentaryConstituency::create(['parliamentary_constituency_name' => 'Shillong','state_id' => 17]);
+        ParliamentaryConstituency::create(['parliamentary_constituency_name' => 'Tura','state_id' => 17]);
+
+        District::create(['district_name' => 'WEST JAINTIA HILLS','state_id' => 17,'parliamentary_constituency_id' => 1]);
+        District::create(['district_name' => 'EAST JAINTIA HILLS','state_id' => 17,'parliamentary_constituency_id' => 1]);
+        District::create(['district_name' => 'RIBHOI','state_id' => 17,'parliamentary_constituency_id' => 1]);
+        District::create(['district_name' => 'EAST KHASI HILLS','state_id' => 17,'parliamentary_constituency_id' => 1]);
+        District::create(['district_name' => 'WEST KHASI HILLS','state_id' => 17,'parliamentary_constituency_id' => 1]);
+        District::create(['district_name' => 'SOUTH WEST KHASI HILLS','state_id' => 17,'parliamentary_constituency_id' => 1]);
+
+        District::create(['district_name' => 'NORTH GARO HILLS','state_id' => 17,'parliamentary_constituency_id' => 2]);
+        District::create(['district_name' => 'EAST GARO HILLS','state_id' => 17,'parliamentary_constituency_id' => 2]);
+        District::create(['district_name' => 'WEST GARO HILLS','state_id' => 17,'parliamentary_constituency_id' => 2]);
+        District::create(['district_name' => 'SOUTH WEST GARO HILLS','state_id' => 17,'parliamentary_constituency_id' => 2]);
+        District::create(['district_name' => 'SOUTH GARO HILLS','state_id' => 17,'parliamentary_constituency_id' => 2]);
 
         Assembly::create(['assembly_name' => 'Nartiang(ST)','district_id' => 1]);   #1
         Assembly::create(['assembly_name' => 'Jowai(ST)', 'district_id' => 1]); #2

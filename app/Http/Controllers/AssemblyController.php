@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Assembly;
 use App\Models\District;
+use App\Models\ParliamentaryConstituency;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Http\Resources\DistrictResource;
 use App\Http\Resources\AssemblyResource;
+use App\Http\Resources\AssemblyWithDistrictResource;
 
 class AssemblyController extends ApiController
 {
@@ -31,6 +33,15 @@ class AssemblyController extends ApiController
         ->get();
 
         return $this->successResponse(AssemblyResource::collection($districtWithAssembly));
+    }
+
+    public function fetchAssemblyConstituenciesAlongWithDistricts()
+    {
+        $parliamentaryConstituencies = ParliamentaryConstituency::orderBy('id')->get();
+
+        return $this->successResponse(AssemblyWithDistrictResource::collection($parliamentaryConstituencies));
+
+        // return response()->json(['success'=>1,'data'=> DistrictResource::collection($districts)], 200,[],JSON_NUMERIC_CHECK);
     }
 
     /**

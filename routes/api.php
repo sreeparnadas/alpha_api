@@ -64,6 +64,8 @@ Route::group(array('prefix' => 'dev'), function() {
         Route::get("/", [AssemblyController::class, 'index']);
         Route::get("/district/{id}", [AssemblyController::class, 'fetchAssemblyByDistrictId']);
 
+        Route::get("/allData", [AssemblyController::class, 'fetchAssemblyConstituenciesAlongWithDistricts']);
+
     });
     Route::group(array('prefix' => 'states'), function() {
 
