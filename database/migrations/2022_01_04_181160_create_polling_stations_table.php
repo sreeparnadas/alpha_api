@@ -15,6 +15,9 @@ class CreatePollingStationsTable extends Migration
     {
         Schema::create('polling_stations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('assembly_constituency_id')->nullable(false)->references('id')->on('assemblies')->onDelete('cascade');
+            $table->integer('polling_number');
+            $table->string('polling_station_name',255)->nullable(true);
             $table->timestamps();
         });
     }

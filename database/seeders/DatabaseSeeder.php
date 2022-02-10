@@ -11,6 +11,7 @@ use App\Models\Area;
 use App\Models\District;
 use App\Models\Assembly;
 use App\Models\ParliamentaryConstituency;
+use App\Models\PollingStation;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder

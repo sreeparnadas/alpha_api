@@ -17,12 +17,14 @@ class CreatePeopleTable extends Migration
             $table->id();
             $table->foreignId('person_type_id')->nullable(false)->references('id')->on('person_types')->onDelete('cascade');
             $table->string('person_name',255)->nullable(false);
+            $table->string('gender',20)->nullable(true);
             $table->string('email')->unique();
 
             $table->string('mobile1',15)->nullable(true);
             $table->string('mobile2',15)->nullable(true);
             $table->string('aadhar_id',15)->nullable(true);
             $table->string('voter_id',15)->nullable(true);
+            $table->foreignId('polling_station_id')->nullable(true)->references('id')->on('polling_stations')->onDelete('cascade');
             $table->timestamps();
         });
     }
