@@ -25,6 +25,8 @@ class CreatePeopleTable extends Migration
             $table->string('mobile2',15)->nullable(true);
             $table->string('aadhar_id',15)->nullable(true);
             $table->string('voter_id',15)->nullable(true);
+            $table->foreignId('state_id')->nullable(true)->references('id')->on('states')->onDelete('cascade');
+            $table->foreignId('parliamentary_constituency_id')->nullable(true)->references('id')->on('parliamentary_constituencies')->onDelete('cascade');
             $table->foreignId('assembly_constituency_id')->nullable(true)->references('id')->on('assemblies')->onDelete('cascade');
             $table->foreignId('polling_station_id')->nullable(true)->references('id')->on('polling_stations')->onDelete('cascade');
             $table->string('remark',255)->nullable(true);
