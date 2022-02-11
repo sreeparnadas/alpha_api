@@ -88,7 +88,7 @@ Route::group(array('prefix' => 'dev'), function() {
 
     Route::group(array('prefix' => 'person'), function() {
 
-        Route::post("/assembly/{id}", [PersonController::class, 'store']);
+        Route::get("/assembly/{id}", [PersonController::class, 'showPersonByAssembly']);
         Route::post("/", [PersonController::class, 'store']);
     });
 
