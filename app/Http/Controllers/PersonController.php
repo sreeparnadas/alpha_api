@@ -74,16 +74,14 @@ class PersonController extends ApiController
             $person->email= $request->input('email');
             $person->mobile1= $request->input('mobile1');
             $person->mobile2= $request->input('mobile2');
-            $person->aadhar_id= $request->input('aadhar_id');
             $person->voter_id= $request->input('voter_id');
             $person->save();
 
             $user = new User();
             $user->person_id = $person->id;
             $user->parent_id = $request->input('parentId');
-            $user->area_id = $request->input('areaId');
-            $user->user_description = $request->input('userDescription');
-            $user->email = $request->input('email');
+            $user->remark = $request->input('remark');
+            $user->email = $person->id;
             $user->password = $request->input('password');
             $user->save();
             DB::commit();

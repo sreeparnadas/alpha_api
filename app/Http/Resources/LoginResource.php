@@ -10,6 +10,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed user_type_id
  * @property mixed token
  * @property mixed user_type
+ * @property mixed person
  */
 class LoginResource extends JsonResource
 {
@@ -28,6 +29,7 @@ class LoginResource extends JsonResource
             'userName' => $this->person->person_name,
             'userTypeId' => $this->person->person_type_id,
             'userTypeName' => $this->person->personTypeName,
+            'assemblyConstituencyId' => $this->person->assembly_constituency_id,
             'token' => $this->token,
         ];
     }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\PollingStationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,13 +53,18 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("/", [PersonController::class, 'store']);
     });
 
+    Route::group(array('prefix' => 'pollingStations'), function() {
+
+        Route::get("/{assemblyId}", [PollingStationController::class, 'fetchPollingStationByAssemblyId']);
+    });
+
 });
 
 
 
 
 Route::group(array('prefix' => 'dev'), function() {
-    
+
     Route::group(array('prefix' => 'assembly'), function() {
 
         Route::get("/", [AssemblyController::class, 'index']);
@@ -70,6 +76,11 @@ Route::group(array('prefix' => 'dev'), function() {
     Route::group(array('prefix' => 'states'), function() {
 
         Route::get("/", [StateController::class, 'index']);
+    });
+
+    Route::group(array('prefix' => 'pollingStations'), function() {
+
+        Route::get("/{assemblyId}", [PollingStationController::class, 'fetchPollingStationByAssemblyId']);
     });
 
     Route::get("states",[StateController::class, 'index']);

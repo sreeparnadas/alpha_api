@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PollingStationResource;
 use App\Models\PollingStation;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,13 @@ class PollingStationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(){}
+
+    public function fetchPollingStationByAssemblyId($assemblyConstituencyId)
     {
-        //
+        $pollingStations = PollingStation::whereAssemblyConstituencyId($assemblyConstituencyId)->orderBy('id')->get();
+
+        return response()->json(['success'=>1,'data'=> PollingStationResource::collection($pollingStations)], 200,[],JSON_NUMERIC_CHECK);
     }
 
     /**
