@@ -8,9 +8,9 @@ use App\Models\User;
 use App\Models\PersonType;
 use App\Models\Person;
 use App\Models\Area;
+use App\Models\ParliamentaryConstituency;
 use App\Models\District;
 use App\Models\Assembly;
-use App\Models\ParliamentaryConstituency;
 use App\Models\PollingStation;
 use Illuminate\Support\Str;
 
