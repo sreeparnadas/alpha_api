@@ -23,8 +23,7 @@ class AssemblyWithDistrictResource extends JsonResource
         return [
             'parliamentaryConstituencyId' => $this->id,
             'name' => $this->parliamentary_constituency_name,
-//            'districts' => DistrictSpecialResource::collection($this->districts)
-            'districts' => $this->districts
+            'districts' => DistrictSpecialResource::collection($this->districts)
         ];
     }
 }
