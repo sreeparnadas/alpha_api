@@ -65,6 +65,7 @@ class PersonController extends ApiController
             $person->mobile1= $request->input('mobile1');
             $person->mobile2= $request->input('mobile2');
             $person->voter_id= $request->input('voter_id');
+            $person->polling_station_id= $request->input('pollingStationId');
             $person->save();
 
             $user = new User();
@@ -97,7 +98,7 @@ inner join person_types ON person_types.id = people.person_type_id
 left join assemblies ON assemblies.id = people.assembly_constituency_id
 left join polling_stations ON polling_stations.id = people.polling_station_id
 where polling_stations.assembly_constituency_id = $assemblyId"));
-        
+
         return $this->successResponse(PollingMemberResource::collection($people));
     }
 
