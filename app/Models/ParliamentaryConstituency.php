@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\District;
 
 class ParliamentaryConstituency extends Model
 {
@@ -14,6 +13,8 @@ class ParliamentaryConstituency extends Model
     ];
 
     public function districts(){
+        // return $this->hasMany(District::class,'parliamentary_constituency_id');
+        // return $this->hasMany('App\Models\District','parliamentary_constituency_id');
         return $this->hasMany(District::class,'parliamentary_constituency_id');
     }
 }
