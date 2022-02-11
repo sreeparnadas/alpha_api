@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event\UserRegistered;
 use App\Http\Resources\LoginResource;
+use App\Models\Person;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
@@ -58,8 +59,13 @@ class UserController extends ApiController
     */
     function login(Request $request)
     {
-        $user= User::where('email', $request->loginId)->first();
-        // print_r($data);
+        $loginId = $request->loginId;
+        if($request->loginType == 'admin'){
+            $person = Person::where('assembly_constituency_id', $request->loginId)->first();
+            $loginId = $person->id;
+        }
+        $user= User::where('email', $loginId)->first();
+
         if (!$user || !Hash::check($request->loginPassword, $user->password)) {
             return response()->json(['success'=>0,'data'=>null, 'message'=>'Credential does not matched'], 200,[],JSON_NUMERIC_CHECK);
         }
