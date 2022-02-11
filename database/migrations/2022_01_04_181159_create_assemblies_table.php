@@ -16,7 +16,7 @@ class CreateAssembliesTable extends Migration
         Schema::create('assemblies', function (Blueprint $table) {
             $table->id();
             $table->string('assembly_name',255)->nullable(false);
-            $table->foreignId('district_id')->nullable(false)->references('id')->on('districts')->onDelete('cascade');
+            $table->foreignId('district_id')->nullable(false)->references('id')->on('district_lists')->onDelete('cascade');
             $table->timestamps();
         });
     }

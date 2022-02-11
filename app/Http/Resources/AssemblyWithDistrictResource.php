@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\ParliamentaryConstituency;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -22,7 +23,8 @@ class AssemblyWithDistrictResource extends JsonResource
         return [
             'parliamentaryConstituencyId' => $this->id,
             'name' => $this->parliamentary_constituency_name,
-            'districts' => DistrictSpecialResource::collection($this->districts)
+//            'districts' => DistrictSpecialResource::collection($this->districts)
+            'districts' => $this->districts
         ];
     }
 }
