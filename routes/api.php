@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
     Route::group(array('prefix' => 'person'), function() {
 
+        Route::get("/assembly/{id}", [PersonController::class, 'showPersonByAssembly']);
         Route::post("/", [PersonController::class, 'store']);
     });
 
