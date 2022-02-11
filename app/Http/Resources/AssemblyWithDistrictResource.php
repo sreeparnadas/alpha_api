@@ -4,6 +4,11 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @property mixed id
+ * @property mixed parliamentary_constituency_name
+ * @property mixed districts
+ */
 class AssemblyWithDistrictResource extends JsonResource
 {
     /**
