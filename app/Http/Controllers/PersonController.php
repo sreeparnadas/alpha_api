@@ -61,10 +61,12 @@ class PersonController extends ApiController
             $person= new Person();
             $person->person_type_id = $request->input('personTypeId');
             $person->person_name = $request->input('personName');
+            $person->age = $request->input('age');
+            $person->gender = $request->input('gender');
             $person->email= $request->input('email');
             $person->mobile1= $request->input('mobile1');
             $person->mobile2= $request->input('mobile2');
-            $person->voter_id= $request->input('voter_id');
+            $person->voter_id= $request->input('voterId');
             $person->polling_station_id= $request->input('pollingStationId');
             $person->save();
 
@@ -81,7 +83,7 @@ class PersonController extends ApiController
             DB::rollBack();
             return response()->json(['success'=>0,'exception'=>$e->getMessage()], 500);
         }
-        return $this->successResponse($person,'User added successfully');
+        return $this->successResponse(new PollingMemberResource($person),'User added successfully');
     }
 
     public function showPersonByAssembly($assemblyId)
