@@ -63,7 +63,7 @@ class PersonController extends ApiController
             $person->person_name = $request->input('personName');
             $person->age = $request->input('age');
             $person->gender = $request->input('gender');
-            $person->email= $request->input('email');
+            $person->email= $customVoucher->last_counter;
             $person->mobile1= $request->input('mobile1');
             $person->mobile2= $request->input('mobile2');
             $person->voter_id= $request->input('voterId');
@@ -74,7 +74,7 @@ class PersonController extends ApiController
             $user->person_id = $person->id;
             $user->parent_id = $request->input('parentId');
             $user->remark = $request->input('remark');
-            $user->email = $person->id;
+            $user->email = $customVoucher->last_counter;
             $user->password = $request->input('password');
             $user->save();
             DB::commit();
@@ -83,7 +83,13 @@ class PersonController extends ApiController
             DB::rollBack();
             return response()->json(['success'=>0,'exception'=>$e->getMessage()], 500);
         }
-        return $this->successResponse(new PollingMemberResource($person),'User added successfully');
+        $newPollingMember = Person::select('people.person_name','people.age', 'people.gender',
+                'people.mobile1', 'people.mobile2', 'people.voter_id','users.id','users.person_id','users.remark',
+                'users.email','polling_stations.polling_number')
+            ->join('users','users.person_id','people.id')
+            ->join('polling_stations','people.polling_station_id','polling_stations.id')
+            ->where('people.id',$person->id)->first();
+        return $this->successResponse(new PollingMemberResource($newPollingMember),'User added successfully');
     }
 
     public function showPersonByAssembly($assemblyId)
