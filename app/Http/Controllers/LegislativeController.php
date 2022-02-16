@@ -39,7 +39,7 @@ class LegislativeController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeVolunteer(Request $request)
     {
         DB::beginTransaction();
 

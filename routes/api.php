@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::group(array('prefix' => 'legislative'), function() {
 
         Route::get("/pollingStation/{id}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
-        Route::post("/", [LegislativeController::class, 'store']);
+        Route::post("/", [LegislativeController::class, 'storeVolunteer']);
     });
 
     Route::group(array('prefix' => 'pollingStations'), function() {
@@ -103,7 +103,7 @@ Route::group(array('prefix' => 'dev'), function() {
     Route::group(array('prefix' => 'legislative'), function() {
 
         Route::get("/pollingStation/{id}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
-        Route::post("/", [LegislativeController::class, 'store']);
+        Route::post("/", [LegislativeController::class, 'storeVolunteer']);
     });
 
     Route::get("logout",[UserController::class,'logout']);
