@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PollingMemberResource;
+use App\Http\Resources\PollingVolunteerResource;
 use App\Models\CustomVoucher;
 use App\Models\Legislative;
-use App\Http\Requests\UpdateLegislativeRequest;
 use App\Models\Person;
 use App\Models\User;
 use Carbon\Carbon;
@@ -108,7 +107,8 @@ class LegislativeController extends ApiController
 
     public function showVolunteersByPollingStationId($pollingStationId)
     {
-        $people = DB::Select(DB::raw("select users.id, users.person_id, users.parent_id, people.person_name,parent_person.person_name as parent_name, users.remark, users.email,
+        $people = DB::Select(DB::raw("select users.id, users.person_id, users.parent_id, people.person_name,parent_person.person_name as parent_name
+, users.remark,users.area_description, users.email,
 person_types.person_type_name, people.age, people.gender,
 people.mobile1, people.mobile2, people.voter_id,
 assemblies.assembly_name, polling_stations.polling_number from users
@@ -120,7 +120,7 @@ left join assemblies ON assemblies.id = people.assembly_constituency_id
 left join polling_stations ON polling_stations.id = people.polling_station_id
 where people.polling_station_id = $pollingStationId and people.person_type_id=4"));
 
-        return $this->successResponse(PollingMemberResource::collection($people));
+        return $this->successResponse(PollingVolunteerResource::collection($people));
     }
 
 }
