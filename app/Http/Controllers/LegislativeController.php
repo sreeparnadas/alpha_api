@@ -101,12 +101,14 @@ class LegislativeController extends ApiController
             ->join('users','users.person_id','people.id')
             ->join('polling_stations','people.polling_station_id','polling_stations.id')
             ->where('people.id',$person->id)->first();
-        return $this->successResponse(new PollingMemberResource($newPollingVolunteer),'User added successfully');
+        return $this->successResponse(new PollingVolunteerResource($newPollingVolunteer),'User added successfully');
     }
 
 
-    public function showVolunteersByPollingStationId($pollingStationId)
+    public function showVolunteersByPollingStationId($userParentId)
     {
+        $userParentObj = User::find($userParentId)->person;
+
         $people = DB::Select(DB::raw("select users.id, users.person_id, users.parent_id, people.person_name,parent_person.person_name as parent_name
 , users.remark,users.area_description, users.email,
 person_types.person_type_name, people.age, people.gender,
@@ -118,7 +120,7 @@ left join people as parent_person on  parent_user.id=parent_person.id
 inner join person_types ON person_types.id = people.person_type_id
 left join assemblies ON assemblies.id = people.assembly_constituency_id
 left join polling_stations ON polling_stations.id = people.polling_station_id
-where people.polling_station_id = $pollingStationId and people.person_type_id=4"));
+where people.polling_station_id = $userParentObj->polling_station_id and people.person_type_id=4"));
 
         return $this->successResponse(PollingVolunteerResource::collection($people));
     }
