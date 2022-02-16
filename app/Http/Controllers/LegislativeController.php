@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Person;
+use App\Http\Resources\PollingMemberResource;
 use App\Models\CustomVoucher;
+use App\Models\Legislative;
+use App\Http\Requests\UpdateLegislativeRequest;
+use App\Models\Person;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-use App\Http\Resources\PollingMemberResource;
 
-class PersonController extends ApiController
+class LegislativeController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -22,11 +24,21 @@ class PersonController extends ApiController
         //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         DB::beginTransaction();
@@ -48,17 +60,18 @@ class PersonController extends ApiController
                 $customVoucher->accounting_year= $currentYear;
                 $customVoucher->last_counter=1;
                 $customVoucher->delimiter='-';
-                $customVoucher->prefix='MP';
+                $customVoucher->prefix='LG';
                 $customVoucher->save();
             }
             //adding Zeros before number
             $counter = str_pad($customVoucher->last_counter,3,"0",STR_PAD_LEFT);
 
+            $parentUser = User::find($request->input('parentId'))->person;
 
             // if any record is failed then whole entry will be rolled back
             //try portion execute the commands and catch execute when error.
             $person= new Person();
-            $person->person_type_id = $request->input('personTypeId');
+            $person->person_type_id = 4;
             $person->person_name = $request->input('personName');
             $person->age = $request->input('age');
             $person->gender = $request->input('gender');
@@ -66,12 +79,13 @@ class PersonController extends ApiController
             $person->mobile1= $request->input('mobile1');
             $person->mobile2= $request->input('mobile2');
             $person->voter_id= $request->input('voterId');
-            $person->polling_station_id= $request->input('pollingStationId');
+            $person->polling_station_id= $parentUser->polling_station_id;
             $person->save();
 
             $user = new User();
             $user->person_id = $person->id;
             $user->parent_id = $request->input('parentId');
+            $user->area_description = $request->input('areaDescription');
             $user->remark = $request->input('remark');
             $user->email = $customVoucher->last_counter;
             $user->password = $request->input('password');
@@ -82,45 +96,31 @@ class PersonController extends ApiController
             DB::rollBack();
             return response()->json(['success'=>0,'exception'=>$e->getMessage()], 500);
         }
-        $newPollingMember = Person::select('people.person_name','people.age', 'people.gender',
-                'people.mobile1', 'people.mobile2', 'people.voter_id','users.id','users.person_id','users.remark',
-                'users.email','polling_stations.polling_number')
+        $newPollingVolunteer = Person::select('people.person_name','people.age', 'people.gender',
+            'people.mobile1', 'people.mobile2', 'people.voter_id','users.id','users.person_id','users.remark',
+            'users.email','polling_stations.polling_number')
             ->join('users','users.person_id','people.id')
             ->join('polling_stations','people.polling_station_id','polling_stations.id')
             ->where('people.id',$person->id)->first();
-        return $this->successResponse(new PollingMemberResource($newPollingMember),'User added successfully');
+        return $this->successResponse(new PollingMemberResource($newPollingVolunteer),'User added successfully');
     }
 
-    public function showPersonByAssembly($assemblyId)
+
+    public function showVolunteersByPollingStationId($pollingStationId)
     {
         $people = DB::Select(DB::raw("select users.id, users.person_id, users.parent_id, people.person_name,parent_person.person_name as parent_name, users.remark, users.email,
 person_types.person_type_name, people.age, people.gender,
 people.mobile1, people.mobile2, people.voter_id,
 assemblies.assembly_name, polling_stations.polling_number from users
-
 inner join people ON people.id = users.person_id
 left join users as parent_user on parent_user.id = users.parent_id
 left join people as parent_person on  parent_user.id=parent_person.id
 inner join person_types ON person_types.id = people.person_type_id
 left join assemblies ON assemblies.id = people.assembly_constituency_id
 left join polling_stations ON polling_stations.id = people.polling_station_id
-where polling_stations.assembly_constituency_id = $assemblyId and people.person_type_id=3"));
+where people.polling_station_id = $pollingStationId and people.person_type_id=4"));
 
         return $this->successResponse(PollingMemberResource::collection($people));
     }
 
-    public function edit(Person $person)
-    {
-        //
-    }
-
-    public function update(Request $request, Person $person)
-    {
-        //
-    }
-
-    public function destroy(Person $person)
-    {
-        //
-    }
 }

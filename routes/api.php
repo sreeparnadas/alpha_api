@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PollingStationController;
+use App\Http\Controllers\LegislativeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,12 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("/", [PersonController::class, 'store']);
     });
 
+    Route::group(array('prefix' => 'legislative'), function() {
+
+        Route::get("/pollingStation/{id}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
+        Route::post("/", [LegislativeController::class, 'store']);
+    });
+
     Route::group(array('prefix' => 'pollingStations'), function() {
 
         Route::get("/{assemblyId}", [PollingStationController::class, 'fetchPollingStationByAssemblyId']);
@@ -91,6 +98,12 @@ Route::group(array('prefix' => 'dev'), function() {
 
         Route::get("/assembly/{id}", [PersonController::class, 'showPersonByAssembly']);
         Route::post("/", [PersonController::class, 'store']);
+    });
+
+    Route::group(array('prefix' => 'legislative'), function() {
+
+        Route::get("/pollingStation/{id}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
+        Route::post("/", [LegislativeController::class, 'store']);
     });
 
     Route::get("logout",[UserController::class,'logout']);
