@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PollingStationController;
 use App\Http\Controllers\LegislativeController;
+use App\Http\Controllers\AssemblyAdminDashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,12 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("/{assemblyId}", [PollingStationController::class, 'fetchPollingStationByAssemblyId']);
     });
 
+    Route::group(array('prefix' => 'assembly'), function() {
+
+        Route::get("/admin/dashboard/{assemblyId}", [AssemblyAdminDashboard::class, 'get_report']);
+
+    });
+
 });
 
 
@@ -79,6 +86,7 @@ Route::group(array('prefix' => 'dev'), function() {
         Route::get("/district/{id}", [AssemblyController::class, 'fetchAssemblyByDistrictId']);
 
         Route::get("/allData", [AssemblyController::class, 'fetchAssemblyConstituenciesAlongWithDistricts']);
+        Route::get("/admin/dashboard/{assemblyId}", [AssemblyAdminDashboard::class, 'get_report']);
 
     });
     Route::group(array('prefix' => 'states'), function() {
