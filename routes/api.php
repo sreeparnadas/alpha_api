@@ -9,7 +9,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PollingStationController;
 use App\Http\Controllers\LegislativeController;
+use App\Http\Controllers\PollingVolunteer;
 use App\Http\Controllers\AssemblyAdminDashboard;
+use App\Http\Controllers\VolunteerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,10 +63,16 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("/{userParentId}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
         Route::post("/", [LegislativeController::class, 'storeVolunteer']);
     });
+    Route::group(array('prefix' => 'volunteer'), function() {
+
+        Route::post("/", [PollingVolunteer::class, 'storePollingStationGeneralMember']);
+        Route::get("/{volunteerId}/workers", [VolunteerController::class, 'fetchGeneralWorkersByVolunteerId']);
+    });
 
     Route::group(array('prefix' => 'pollingStations'), function() {
 
         Route::get("/{assemblyId}", [PollingStationController::class, 'fetchPollingStationByAssemblyId']);
+        Route::get("/{pollingId}/volunteers", [PollingStationController::class, 'fetchVolunteerByPollingId']);
     });
 
     Route::group(array('prefix' => 'assembly'), function() {
@@ -97,6 +105,7 @@ Route::group(array('prefix' => 'dev'), function() {
     Route::group(array('prefix' => 'pollingStations'), function() {
 
         Route::get("/{assemblyId}", [PollingStationController::class, 'fetchPollingStationByAssemblyId']);
+        Route::get("/{pollingId}/volunteers", [PollingStationController::class, 'fetchVolunteerByPollingId']);
     });
 
     Route::get("states",[StateController::class, 'index']);
@@ -112,6 +121,12 @@ Route::group(array('prefix' => 'dev'), function() {
 
         Route::get("/{userParentId}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
         Route::post("/", [LegislativeController::class, 'storeVolunteer']);
+    });
+
+    Route::group(array('prefix' => 'volunteer'), function() {
+
+        Route::post("/", [PollingVolunteer::class, 'storePollingStationGeneralMember']);
+        Route::get("/{volunteerId}/workers", [VolunteerController::class, 'fetchGeneralWorkersByVolunteerId']);
     });
 
     Route::get("logout",[UserController::class,'logout']);
