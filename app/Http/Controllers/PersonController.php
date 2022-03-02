@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use App\Models\CustomVoucher;
+use App\Models\PollingStation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -109,18 +110,74 @@ where polling_stations.assembly_constituency_id = $assemblyId and people.person_
         return $this->successResponse(PollingMemberResource::collection($people));
     }
 
-    public function edit(Person $person)
+    public function createPollingAgent(Request $request)
     {
-        //
-    }
+        DB::beginTransaction();
 
-    public function update(Request $request, Person $person)
-    {
-        //
-    }
+        try{
+            $now = Carbon::now();
+            $currentYear = $now->year;
 
-    public function destroy(Person $person)
-    {
-        //
+            $voucher="pollingAgent";
+            $customVoucher=CustomVoucher::where('voucher_name','=',$voucher)->first();
+            if($customVoucher) {
+                //already exist
+                $customVoucher->last_counter = $customVoucher->last_counter + 1;
+                $customVoucher->save();
+            }else{
+                //fresh entry
+                $customVoucher= new CustomVoucher();
+                $customVoucher->voucher_name=$voucher;
+                $customVoucher->accounting_year= $currentYear;
+                $customVoucher->last_counter=1;
+                $customVoucher->delimiter='-';
+                $customVoucher->prefix='PA';
+                $customVoucher->save();
+            }
+            //adding Zeros before number
+            $counter = str_pad($customVoucher->last_counter,3,"0",STR_PAD_LEFT);
+
+            $assemblyDetails = PollingStation::
+            select(DB::raw('SUBSTRING(assemblies.assembly_name, 1, 3) AS assembly_code'))
+                ->join('assemblies','assemblies.id','polling_stations.assembly_constituency_id')
+                ->where('polling_stations.id',$request->input('pollingStationId'))
+                ->first();
+            $member_code = $assemblyDetails->assembly_code . $customVoucher->last_counter;
+            $emailId = 'agent'.$customVoucher->last_counter;
+            // if any record is failed then whole entry will be rolled back
+            //try portion execute the commands and catch execute when error.
+            $person= new Person();
+            $person->member_code = $member_code;
+            $person->person_type_id = $request->input('personTypeId');
+            $person->person_name = $request->input('personName');
+            $person->age = $request->input('age');
+            $person->gender = $request->input('gender');
+            $person->email= $emailId;
+            $person->mobile1= $request->input('mobile1');
+            $person->mobile2= $request->input('mobile2');
+            $person->voter_id= $request->input('voterId');
+            $person->polling_station_id= $request->input('pollingStationId');
+            $person->save();
+
+            $user = new User();
+            $user->person_id = $person->id;
+            $user->parent_id = $request->input('parentId');
+            $user->remark = $request->input('remark');
+            $user->email = $emailId;
+            $user->password = $request->input('password');
+            $user->save();
+            DB::commit();
+
+        }catch(\Exception $e){
+            DB::rollBack();
+            return response()->json(['success'=>0,'exception'=>$e->getMessage()], 500);
+        }
+        $newPollingMember = Person::select('people.member_code','people.person_name','people.age', 'people.gender',
+            'people.mobile1', 'people.mobile2', 'people.voter_id','users.id','users.person_id','users.remark',
+            'users.email','polling_stations.polling_number')
+            ->join('users','users.person_id','people.id')
+            ->join('polling_stations','people.polling_station_id','polling_stations.id')
+            ->where('people.id',$person->id)->first();
+        return $this->successResponse(new PollingMemberResource($newPollingMember),'User added successfully');
     }
 }

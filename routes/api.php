@@ -58,6 +58,11 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("/", [PersonController::class, 'store']);
     });
 
+    Route::group(array('prefix' => 'pollingAgent'), function() {
+
+        Route::post("/", [PersonController::class, 'createPollingAgent']);
+    });
+
     Route::group(array('prefix' => 'legislative'), function() {
 
         Route::get("/{userParentId}", [LegislativeController::class, 'showVolunteersByPollingStationId']);
@@ -115,6 +120,11 @@ Route::group(array('prefix' => 'dev'), function() {
 
         Route::get("/assembly/{id}", [PersonController::class, 'showPersonByAssembly']);
         Route::post("/", [PersonController::class, 'store']);
+    });
+
+    Route::group(array('prefix' => 'pollingAgent'), function() {
+
+        Route::post("/", [PersonController::class, 'createPollingAgent']);
     });
 
     Route::group(array('prefix' => 'legislative'), function() {

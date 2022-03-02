@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ParliamentaryConstituency;
 use Illuminate\Database\Seeder;
 
 class ParliamentaryConstituencySeeder extends Seeder
@@ -13,6 +14,7 @@ class ParliamentaryConstituencySeeder extends Seeder
      */
     public function run()
     {
-        //
+        ParliamentaryConstituency::create(['parliamentary_constituency_name' => 'Shillong','state_id' => 17]);
+        ParliamentaryConstituency::create(['parliamentary_constituency_name' => 'Tura','state_id' => 17]);
     }
 }

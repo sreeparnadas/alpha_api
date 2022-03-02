@@ -20,7 +20,7 @@ class PollingVolunteer extends ApiController
             $now = Carbon::now();
             $currentYear = $now->year;
 
-            $voucher="userRegistration";
+            $voucher="pollingGeneralMember";
             $customVoucher=CustomVoucher::where('voucher_name','=',$voucher)->first();
             if($customVoucher) {
                 //already exist
@@ -33,22 +33,25 @@ class PollingVolunteer extends ApiController
                 $customVoucher->accounting_year= $currentYear;
                 $customVoucher->last_counter=1;
                 $customVoucher->delimiter='-';
-                $customVoucher->prefix='V';
+                $customVoucher->prefix='G';
                 $customVoucher->save();
             }
             //adding Zeros before number
             $counter = str_pad($customVoucher->last_counter,3,"0",STR_PAD_LEFT);
 
             $parentUser = User::find($request->input('parentId'))->person;
-
+            //return ['parent' => $parentUser];
+            $memberCode = $parentUser->member_code.'-'.$customVoucher->last_counter;
+            $emailId = 'gn'.$customVoucher->last_counter;
             // if any record is failed then whole entry will be rolled back
             //try portion execute the commands and catch execute when error.
             $person= new Person();
             $person->person_type_id = 5;
+            $person->member_code = $memberCode;
             $person->person_name = $request->input('personName');
             $person->age = $request->input('age');
             $person->gender = $request->input('gender');
-            $person->email= $customVoucher->last_counter;
+            $person->email= $emailId;
             $person->mobile1= $request->input('mobile1');
             $person->mobile2= $request->input('mobile2');
             $person->voter_id= $request->input('voterId');
@@ -60,7 +63,7 @@ class PollingVolunteer extends ApiController
             $user->parent_id = $request->input('parentId');
             $user->area_description = $request->input('areaDescription');
             $user->remark = $request->input('remark');
-            $user->email = $customVoucher->last_counter;
+            $user->email = $emailId;
             $user->password = $request->input('password');
             $user->save();
             DB::commit();

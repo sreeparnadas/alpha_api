@@ -20,6 +20,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed mobile2
  * @property mixed voter_id
  * @property mixed assembly_name
+ * @property mixed member_code
  */
 class PollingMemberResource extends JsonResource
 {
@@ -35,6 +36,7 @@ class PollingMemberResource extends JsonResource
             "id" => $this->id,
 			"personId" => $this->person_id,
 			"parentId" => $this->parent_id,
+			"memberCode" => $this->member_code,
 			"personName" => $this->person_name,
 			"parentName" => $this->parent_name,
 			"remark" => $this->remark,
