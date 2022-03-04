@@ -10,7 +10,7 @@ class VolunteerController extends Controller
 {
     public function fetchGeneralWorkersByVolunteerId($volunteerId)
     {
-        $generalWorkers = Person::select('people.person_name', 'people.age', 'people.gender',
+        $generalWorkers = Person::select('people.member_code','people.person_name', 'people.age', 'people.gender',
             'people.mobile1', 'people.mobile2', 'people.aadhar_id','people.voter_id')
             ->join('users','people.id','users.person_id')
             ->where('people.person_type_id',5)

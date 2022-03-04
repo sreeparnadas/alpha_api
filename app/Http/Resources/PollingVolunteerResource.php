@@ -18,6 +18,7 @@ class PollingVolunteerResource extends JsonResource
             "id" => $this->id,
             "personId" => $this->person_id,
             "parentId" => $this->parent_id,
+            "memberCode" => $this->member_code,
             "personName" => $this->person_name,
             "parentName" => $this->parent_name,
             "remark" => $this->remark,
@@ -30,8 +31,7 @@ class PollingVolunteerResource extends JsonResource
             "mobile2" => $this->mobile2,
             "voterId" => $this->voter_id,
             "assemblyName" => $this->assembly_name,
-            "pollingNumber" => $this->polling_number,
-            "totalWorkers" => $this->workers
+            "pollingNumber" => $this->polling_number
         ];
     }
 }

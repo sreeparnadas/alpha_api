@@ -109,9 +109,8 @@ class LegislativeController extends ApiController
 
     public function showVolunteersByPollingStationId($userParentId)
     {
-        $userParentObj = User::find($userParentId)->person;
-
-        $people = DB::Select(DB::raw("select users.id, users.person_id, users.parent_id, people.person_name,parent_person.person_name as parent_name
+        $userParentObj = User::findOrFail($userParentId)->person;
+        $people = DB::Select(DB::raw("select users.id, users.person_id, users.parent_id, people.member_code, people.person_name,parent_person.person_name as parent_name
 , users.remark,users.area_description, users.email,
 person_types.person_type_name, people.age, people.gender,
 people.mobile1, people.mobile2, people.voter_id,
