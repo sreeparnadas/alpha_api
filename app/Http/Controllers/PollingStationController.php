@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\GeneralWorkerResource;
 use App\Http\Resources\PollingStationResource;
 use App\Http\Resources\VolunteerReportResource;
 use App\Models\Person;
 use App\Models\PollingStation;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,6 +40,19 @@ class PollingStationController extends Controller
         }
 
         return response()->json(['success'=>1,'data'=> VolunteerReportResource::collection($volunteers)], 200,[],JSON_NUMERIC_CHECK);
+    }
+
+    public function fetchGeneralWorkersByPollingId($userParentId)
+    {
+        $userParentObj = User::findOrFail($userParentId)->person;
+        $volunteers = Person::select('users.id','people.member_code','people.person_name', 'people.age', 'people.gender',
+            'people.mobile1', 'people.mobile2', 'people.aadhar_id','people.voter_id')
+            ->join('users','people.id','users.person_id')
+            ->where('people.polling_station_id',$userParentObj->polling_station_id)
+            ->where('people.person_type_id',5)
+            ->get();
+
+        return response()->json(['success'=>1,'data'=> GeneralWorkerResource::collection($volunteers)], 200,[],JSON_NUMERIC_CHECK);
     }
 
     public function countGeneralWorkers($volunteerId){
