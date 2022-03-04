@@ -45,7 +45,7 @@ class PollingStationController extends Controller
     public function fetchGeneralWorkersByPollingId($userParentId)
     {
         $userParentObj = User::findOrFail($userParentId)->person;
-        $volunteers = Person::select('users.id','people.member_code','people.person_name', 'people.age', 'people.gender',
+        $volunteers = Person::select('users.id','people.member_code','people.person_name', 'people.age', 'people.gender','people.email',
             'people.mobile1', 'people.mobile2', 'people.aadhar_id','people.voter_id')
             ->join('users','people.id','users.person_id')
             ->where('people.polling_station_id',$userParentObj->polling_station_id)
